@@ -15,6 +15,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 console.log(path.join(__dirname, '/public/favicon', 'favicon.ico'));
+console.log(path.join(__dirname, '/public'));
+console.log(path.join(__dirname, '/app/utility')); 
+
 // app.use(favicon(path.join(__dirname, '/public/favicon', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
