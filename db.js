@@ -5,7 +5,7 @@ var sequelize;
 try {
 	if(env === 'production'){
 		console.log('connecting to databse in heroku');
-		sequelize = new Sequelize('postgres://cnhalpbaygixbq:XOD2WObhEjdOOQYpAN5osYkwT5@ec2-54-243-63-195.compute-1.amazonaws.com:5432/d905npbrc1ccs');
+		sequelize = new Sequelize('postgres://hovvfctniqxjxf:JjTtEuJDGOzmi9S9iC49pwML-0@ec2-54-163-225-208.compute-1.amazonaws.com:5432/dcgaahifmes9h4');
 	}else{
 		console.log('connecting to databse in local');
 		sequelize = new Sequelize('postgres://postgres:nk@localhost:5433/tacme?ssl=true');	
