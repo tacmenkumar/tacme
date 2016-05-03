@@ -92,14 +92,12 @@ router.post('/forgot/password', function(req, res, next) {
 
 router.post('/sync/contacts', middleware.requireAuthentication, function(req, res, next) {
 	var body = _.pick(req.body, "userContacts");
-	console.log('=============================');
-	console.log(body);
-	console.log('=============================');
 	if(body["userContacts"].length > 0){
 		db.user.syncContacts(body).then(function(syncedContacts){
 			var success = _.extend(syncedContacts, {
 				status: true
 			});
+			console.log('send data');
 			res.json(success);
 		}, function(e){
 			var errors = _.extend(e, {
