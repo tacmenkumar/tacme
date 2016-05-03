@@ -33,9 +33,9 @@ function registerUser(userinfo,socket) {
  * @param  {Object} data   Message Body
  * @param  {Object} socket Socket
  */
-function messageReceived(data, socket) {
+function messageReceived(data, socket,io) {
 	console.log("Message: " + data.message);
-	socket.emit("message", {
+	io.emit("message", {
 		id: data.id,
 		message: data.message
 	});
@@ -64,7 +64,7 @@ exports.initSocket = function(server) {
 		});
 
 		socket.on('message', function(data) {
-			messageReceived(data, socket);
+			messageReceived(data, socket,io);
 		});
 
 		socket.on('disconnect', function(e) {
