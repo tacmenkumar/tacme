@@ -12,7 +12,9 @@ var debug = require('debug')('tacme:server');
 var db = require('../db.js');
 var socketio = require('../socketio.js');
 
-var env = "development"
+var env = 'production';
+// env = 'development';
+var server;
 
 var privateKey  = fs.readFileSync('./sslcert/nirworld-key.pem', 'utf8');
 var certificate = fs.readFileSync('./sslcert/nirworld-cert.pem', 'utf8');
@@ -24,14 +26,15 @@ var credentials = {key: privateKey, cert: certificate};
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
-
-var server = http.createServer(app);
-// var server = https.createServer(credentials, app);
-
+//SSL termination occurs at Heroku's load balancers; they send your app plain (non-SSL) traffic, so your app should create a non-HTTPS server. As for the page at https://mydomain.com ran insecure content from http://mydomain.com, make sure that all the images/scripts/etc. your page is using is also served over the https protocol.
+if(env === 'production'){
+  server = http.createServer(app);
+}else{
+  server = https.createServer(credentials, app);
+}
 
 /**
  * Listen on provided port, on all network interfaces.

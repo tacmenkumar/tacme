@@ -15,9 +15,9 @@ try {
 	    .then(function(success) {
 	    console.log('----------------------------- Database Connection Established Successfully. ---------------------------------')
 	  }, function (err) { 
-	    console.log('Unable to connect to the database:', err);
+	    console.log('----------------------------- err in catch begin ---------------------------------')
 	    console.log(err);
-	    console.log('----------------------------- err begin ---------------------------------')
+	    console.log('----------------------------- err end ---------------------------------')
 	  }).catch(function (err) {
 	        console.log('----------------------------- err in catch begin ---------------------------------')
 	        console.log(err);

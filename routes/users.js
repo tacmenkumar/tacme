@@ -107,7 +107,10 @@ router.post('/sync/contacts', middleware.requireAuthentication, function(req, re
 	}else{
 		var errors = {
 				status: false,
-				message: "Please add some value"
+				message: "Please add some value",
+				errors : [{
+					message: "Please add some value",
+				}]
 		};
 		res.status(201).json(errors);
 	}
