@@ -57,10 +57,11 @@ function sendMessage() {
 
 function sendRegisterRequest() {
 	var requestobj = {
-		email: trimstring($("#email_textbox").val(), ""),
-		password: trimstring($("#email_textbox").val(), ""),
-		date_of_birth: trimstring($("#date_of_birth_textbox").val(), ""),
-		gender: trimstring($("input[type='radio'].radio_gender:checked").val())
+		"display_name" :trimstring($("#display_name_textbox").val(), ""),
+		"email" : trimstring($("#email_textbox").val(), ""),
+		"password": trimstring($("#password_textbox").val(), ""),
+		"date_of_birth" : trimstring($("#date_of_birth_textbox").val(), ""),
+		"mobile_no": trimstring($("#mobile_no_textbox").val(), "")
 	}
 
 	console.log(requestobj);

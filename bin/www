@@ -13,7 +13,7 @@ var db = require('../db.js');
 var socketio = require('../socketio.js');
 
 var env = 'production';
-// env = 'development';
+env = 'development';
 var server;
 
 var privateKey  = fs.readFileSync('./sslcert/nirworld-key.pem', 'utf8');
