@@ -94,7 +94,9 @@ router.post('/sync/contacts', middleware.requireAuthentication, function(req, re
 	var body = _.pick(req.body, "userContacts");
 	if(body["userContacts"].length > 0){
 		db.user.syncContacts(body).then(function(syncedContacts){
-			var success = _.extend(syncedContacts, {
+			var success = _.extend({
+				syncedContacts : syncedContacts
+			}, {
 				status: true
 			});
 			console.log('send data');
