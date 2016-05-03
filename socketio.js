@@ -51,6 +51,10 @@ exports.initSocket = function(server) {
 	// Called on connection to server from the client
 	io.on('connect', function(socket) {
 		logger(socket.id, 'Connect');
+		
+		socket.emit("message", {
+			message : "Connected Successfully."
+		});
 
 		socket.on('register', function(userinfo) {
 			userinfo = _.extend(userinfo, {
