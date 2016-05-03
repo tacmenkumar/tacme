@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	div#container
+		div#chatbox.ui-widget-content
+			div#message_header
+				p
+					| Chat Box
+			div#user_box
+				div#userbox_container
+					div.formfield
+						label
+							| Email ID 
+							input(type="text" name="email")#email_textbox.form_textbox
+					div.formfield
+						label
+							| Password 
+							input(type="password" name="password")#password_textbox.form_textbox
+					div.formfield
+						label
+							| Date of Birth 
+							input(type="text" name="datepicker")#date_of_birth_textbox.form_textbox
+					div.formfield
+						label(for="male")
+							| Male 
+							input(type="radio", name="gender", value="Male", checked=true)#male.radio_gender
+					div.formfield
+						label(for="female")
+							| Female 
+							input(type="radio", name="gender", value="Female")#female.radio_gender
+			div#message_list_container
+				ul#message_list
+			div#message_box
+				input(type="text", name="message_textbox")#message_textbox
+				input(type="button", name="send_button", value="Register")#send_button
