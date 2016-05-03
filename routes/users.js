@@ -98,6 +98,7 @@ router.post('/sync/contacts', middleware.requireAuthentication, function(req, re
 				status: true
 			});
 			console.log('send data');
+			console.log(success);
 			res.json(success);
 		}, function(e){
 			var errors = _.extend(e, {
